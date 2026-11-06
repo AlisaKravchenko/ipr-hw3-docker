@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    ports: ["127.0.0.1:${HOST_PORT:-8080}:8000"]
+    environment:
+      STORAGE: redis
+      REDIS_URL: redis://redis:6379/0
+      GREETING: "${GREETING:-Hello, Docker!}"
+    healthcheck:
+      test: python -c "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/readyz', timeout=2)"
+  redis:
+    image: redis:7.4-alpine
+    command: redis-server --appendonly yes
+    volumes: ["redis-data:/data"]
+    healthcheck: {test: "redis-cli ping | grep -qx PONG"}
+volumes:
+  redis-data:
