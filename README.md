@@ -1,3 +1,5 @@
+```
+
 4 балла:
 docker build -t hw3-first .
 docker run -d --name hw3-1 -p 127.0.0.1:8080:8000 -e GREETING='Привет из Docker!' hw3-first
@@ -78,3 +80,4 @@ curl http://127.0.0.1:8080/
 
 curl -X POST http://127.0.0.1:8080/increment
 Вывод: {"greeting": "Hello, Docker!", "count": 3, "hostname": "fc7d1268a4ca", "storage": "redis"}
+```
