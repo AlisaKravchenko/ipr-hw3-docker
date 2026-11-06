@@ -58,7 +58,7 @@ curl http://127.0.0.1:8080/
 Счетчик остался равен 2.
 
 docker compose stop redis
-Вывод: ✔ Container hw_3_ipr-redis-1 Stopped
+Вывод: Container hw_3_ipr-redis-1 Stopped
 
 curl -i http://127.0.0.1:8080/healthz
 Вывод: HTTP/1.0 200 OK
